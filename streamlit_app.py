@@ -35,26 +35,26 @@ st.write("Wprowadź dane dotyczące stylu życia, aby przewidzieć, czy osoba je
 
 # Funkcja do wprowadzania danych
 def user_input_features():
-    Age = st.slider('Age', 18, 60, 30)
-    Sleep_Hours = st.slider('Sleep Hours', 3.0, 10.0, 7.0)
-    Screen_Time = st.slider('Screen Time (hours)', 1.0, 12.0, 5.0)
-    Stress_Level = st.slider('Stress Level (1-10)', 1, 10, 5)
-    Noise_Exposure = st.slider('Noise Exposure (0-5)', 0, 5, 2)
-    Social_Interaction = st.slider('Social Interaction (per day)', 0, 10, 5)
-    Work_Hours = st.slider('Work Hours', 4, 15, 8)
-    Exercise_Hours = st.slider('Exercise Hours', 0.0, 3.0, 1.0)
-    Caffeine_Intake = st.slider('Caffeine Intake (cups)', 0, 5, 2)
+    Age = st.slider('Age', 18, 60, 30, step=1)
+    Sleep_Hours = st.slider('Sleep Hours', 3, 12, 7, step=1)   # całe godziny
+    Screen_Time = st.slider('Screen Time (hours)', 1, 16, 5, step=1)
+    Stress_Level = st.slider('Stress Level (1-10)', 1, 10, 5, step=1)
+    Noise_Exposure = st.slider('Noise Exposure (0-5)', 0, 5, 2, step=1)
+    Social_Interaction = st.slider('Social Interaction (per day)', 0, 20, 5, step=1)
+    Work_Hours = st.slider('Work Hours', 1, 16, 8, step=1)
+    Exercise_Hours = st.slider('Exercise Hours', 0, 4, 1, step=1)
+    Caffeine_Intake = st.slider('Caffeine Intake (cups)', 0, 10, 2, step=1)
     Multitasking_Habit = st.selectbox('Multitasking Habit', [0, 1])
-    Anxiety_Score = st.slider('Anxiety Score (1-10)', 1, 10, 5)
-    Depression_Score = st.slider('Depression Score (1-10)', 1, 10, 5)
-    Sensory_Sensitivity = st.slider('Sensory Sensitivity (0-4)', 0, 4, 2)
+    Anxiety_Score = st.slider('Anxiety Score (1-10)', 1, 10, 5, step=1)
+    Depression_Score = st.slider('Depression Score (1-10)', 1, 10, 5, step=1)
+    Sensory_Sensitivity = st.slider('Sensory Sensitivity (0-4)', 0, 4, 2, step=1)
     Meditation_Habit = st.selectbox('Meditation Habit', [0, 1])
-    Overthinking_Score = st.slider('Overthinking Score (1-10)', 1, 10, 5)
-    Irritability_Score = st.slider('Irritability Score (1-10)', 1, 10, 5)
-    Headache_Frequency = st.slider('Headache Frequency (per week)', 0, 7, 2)
-    Sleep_Quality = st.slider('Sleep Quality (1-4)', 1, 4, 3)
-    Tech_Usage_Hours = st.slider('Tech Usage Hours', 1.0, 10.0, 5.0)
-    
+    Overthinking_Score = st.slider('Overthinking Score (1-10)', 1, 10, 5, step=1)
+    Irritability_Score = st.slider('Irritability Score (1-10)', 1, 10, 5, step=1)
+    Headache_Frequency = st.slider('Headache Frequency (per week)', 0, 7, 2, step=1)
+    Sleep_Quality = st.slider('Sleep Quality (1-4)', 1, 4, 3, step=1)
+    Tech_Usage_Hours = st.slider('Tech Usage Hours', 1, 16, 5, step=1)
+
     data_input = {
         'Age': Age,
         'Sleep_Hours': Sleep_Hours,
@@ -77,6 +77,7 @@ def user_input_features():
         'Tech_Usage_Hours': Tech_Usage_Hours
     }
     return pd.DataFrame(data_input, index=[0])
+
 
 input_df = user_input_features()
 
